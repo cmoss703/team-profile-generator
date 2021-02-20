@@ -32,13 +32,13 @@ describe("id", () => {
 });
 
 describe("email", () => {
-    it("should assign a name to the employee", () => {
+    it("should assign an email to the employee", () => {
 
-        const name = "Joseph";
+        const email = "joseph@joseph.mail";
         
-        const result = new Employee("fakename", 123, email);
+        const result = new Employee("Joseph", 123, email);
 
-        expect(result.name).toEqual(name);
+        expect(result.email).toEqual(email);
     })
 });
 
@@ -46,7 +46,7 @@ describe("Role", () => {
     it("", () => {
 
         const role = 'Employee';
-        const result = new Employee("Joseph", 123, "joseph@mail.mail")
+        const result = new Employee("Joseph", 123, "joseph@mail.mail");
 
         expect(result.getRole()).toEqual(role)
     })

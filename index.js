@@ -48,12 +48,12 @@ function addEmployee() {
                 message: "Which type of team member would you like to add?",
                 type: "list",
                 choices: ["Engineer", "Intern", "I don't want to add any more team members."],
-                name: "add-member",
+                name: "addmember",
 
             }
         ]).then((response) => {
             // response.add-member
-            switch (response.add - member) {
+            switch (response.addmember) {
                 case "Engineer":
                     addEngineer()
                     break;
@@ -64,30 +64,30 @@ function addEmployee() {
                     buildTeam()
             };
         });
-    };
+};
 
-    
 
-    function addEngineer() {
-        inquirer
+
+function addEngineer() {
+    inquirer
         .prompt([
             {
-                message: "What is the team manager's name?",
+                message: "What is the engineer's's name?",
                 type: "input",
                 name: "name",
             },
             {
-                message: "What is the team manager's ID?",
+                message: "What is the engineer's ID?",
                 type: "input",
                 name: "id",
             },
             {
-                message: "What is the team manager's email?",
+                message: "What is the engineer's email?",
                 type: "input",
                 name: "email",
             },
             {
-                message: "What is the team manager's office number?",
+                message: "What is the engineer's github username?",
                 type: "input",
                 name: "github",
             },
@@ -98,17 +98,45 @@ function addEmployee() {
 
             addEmployee();
         })
-    };
+};
 
-    function addIntern() {
+function addIntern() {
+    inquirer
+        .prompt([
+            {
+                message: "What is the intern's's name?",
+                type: "input",
+                name: "name",
+            },
+            {
+                message: "What is the intern's ID?",
+                type: "input",
+                name: "id",
+            },
+            {
+                message: "What is the intern's email?",
+                type: "input",
+                name: "email",
+            },
+            {
+                message: "Where does the intern go to school?",
+                type: "input",
+                name: "school",
+            },
+        ]).then((response) => {
+            const intern = new Engineer(response.name, response.id, response.email, response.school);
 
-    };
+            employees.push(intern);
 
-    function buildTeam() {
+            addEmployee();
+        })
+};
 
-        // create an html file and css file
+function buildTeam() {
 
-    }
+    // create an html file and css file
+
+}
 
     // make separate prompt functions for each type of employee
     // separate function that outputs html, that builds file
