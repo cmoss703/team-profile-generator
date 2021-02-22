@@ -1,5 +1,10 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
+const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
+const generateHTML = require('./src/generateHTML');
+
 
 const employees = [];
 
@@ -124,7 +129,7 @@ function addIntern() {
                 name: "school",
             },
         ]).then((response) => {
-            const intern = new Engineer(response.name, response.id, response.email, response.school);
+            const intern = new Intern(response.name, response.id, response.email, response.school);
 
             employees.push(intern);
 
@@ -135,6 +140,9 @@ function addIntern() {
 function buildTeam() {
 
     // create an html file and css file
+
+    fs.writeFile(".dist/TeamProfile.html", `${generateHTML(employees)}`, (err) =>
+        err ? console.log(err) : console.log("Team Profile ready!"))
 
 }
 
