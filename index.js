@@ -141,10 +141,12 @@ function buildTeam() {
 
     // create an html file and css file
 
-    fs.writeFile(".dist/TeamProfile.html", `${generateHTML(employees)}`, (err) =>
+    fs.writeFile("./dist/TeamProfile.html", `${generateHTML(employees)}`, (err) =>
         err ? console.log(err) : console.log("Team Profile ready!"))
 
 }
 
     // make separate prompt functions for each type of employee
     // separate function that outputs html, that builds file
+
+module.exports = employees

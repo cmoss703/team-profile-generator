@@ -26,7 +26,7 @@ function generateHTML(employees) {
         <div class="container">
             <div class="row">
 
-          ${generateTeam}
+          ${generateTeam(employees)}
 
             </div>
         </div>
@@ -37,37 +37,37 @@ function generateHTML(employees) {
 };
 
 function generateTeam(employees) {
-    employees.forEach(employee => {
+    employees.forEach(employees => {
 
-        if (employee.getRole() === "Manager") {
+        if (employees.getRole() === "Manager") {
             return `
             <div class="card float-start shadow col-lg-4 col-sm-12 mt-5 mx-auto">
                 <div class="card-header bg-dark text-light">
-                    ${employee.name}
+                    ${employees.name}
                     <br>
                     Manager
                 </div>
                 <ul>
-                    <li class="text-dark">ID: ${employee.id}</li>
-                    <li class="text-dark">Email: <a href="mailto:${employee.email}">${employee.email}</a></li>
-                    <li class="text-dark">Office Number: ${employee.officeNumber}</li>
+                    <li class="text-dark">ID: ${employees.id}</li>
+                    <li class="text-dark">Email: <a href="mailto:${employees.email}">${employees.email}</a></li>
+                    <li class="text-dark">Office Number: ${employees.officeNumber}</li>
                 </ul>
             </div>
             `
-        } else if (employee.getRole() === "Engineer") {
+        } else if (employees.getRole() === "Engineer") {
             return `
             <div class="card float-start shadow col-lg-4 col-sm-12 mt-5 mx-auto">
                 <div class="card-header bg-dark text-light">
-                    ${employee.name}
+                    ${employees.name}
                     <br>
                     Engineer
                 </div>
                 <ul>
-                    <li class="text-dark">ID: ${employee.id}</li>
+                    <li class="text-dark">ID: ${employees.id}</li>
                     <li class="text-dark">Email: <a
-                            href="mailto:${employee.email}">${employee.email}</a>
+                            href="mailto:${employees.email}">${employees.email}</a>
                     </li>
-                    <li class="text-dark">Github: ${employee.github}</li>
+                    <li class="text-dark">Github: ${employees.github}</li>
                 </ul>
             </div>
             `
@@ -75,16 +75,16 @@ function generateTeam(employees) {
             return `
             <div class="card float-start shadow col-lg-4 col-sm-12 mt-5 mx-auto">
                 <div class="card-header bg-dark text-light">
-                    ${employee.name}
+                    ${employees.name}
                     <br>
                     Intern
                 </div>
                 <ul>
-                    <li class="text-dark">ID: ${employee.id}</li>
+                    <li class="text-dark">ID: ${employees.id}</li>
                     <li class="text-dark">Email: <a
-                            href="mailto:${employee.email}">${employee.email}</a>
+                            href="mailto:${employees.email}">${employees.email}</a>
                     </li>
-                    <li class="text-dark">School: ${employee.school}</li>
+                    <li class="text-dark">School: ${employees.school}</li>
                 </ul>
             </div>
             `
