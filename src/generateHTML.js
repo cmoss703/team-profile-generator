@@ -1,6 +1,7 @@
 const index = require("../index");
 
 function generateHTML(employees) {
+    console.log(employees);
     return `<!DOCTYPE html>
     <html lang="en">
     
@@ -37,59 +38,61 @@ function generateHTML(employees) {
 };
 
 function generateTeam(employees) {
-    employees.forEach(employees => {
-
-        if (employees.getRole() === "Manager") {
-            return `
+    let cardData = [];
+    employees.forEach(employee => {
+        console.log(employee);
+        if (employee.getRole() === "Manager") {
+            cardData.push(`
             <div class="card float-start shadow col-lg-4 col-sm-12 mt-5 mx-auto">
                 <div class="card-header bg-dark text-light">
-                    ${employees.name}
+                    ${employee.name}
                     <br>
                     Manager
                 </div>
                 <ul>
-                    <li class="text-dark">ID: ${employees.id}</li>
-                    <li class="text-dark">Email: <a href="mailto:${employees.email}">${employees.email}</a></li>
-                    <li class="text-dark">Office Number: ${employees.officeNumber}</li>
+                    <li class="text-dark">ID: ${employee.id}</li>
+                    <li class="text-dark">Email: <a href="mailto:${employee.email}">${employee.email}</a></li>
+                    <li class="text-dark">Office Number: ${employee.officeNumber}</li>
                 </ul>
             </div>
-            `
-        } else if (employees.getRole() === "Engineer") {
-            return `
+            `);
+        } else if (employee.getRole() === "Engineer") {
+            cardData.push(`
             <div class="card float-start shadow col-lg-4 col-sm-12 mt-5 mx-auto">
                 <div class="card-header bg-dark text-light">
-                    ${employees.name}
+                    ${employee.name}
                     <br>
                     Engineer
                 </div>
                 <ul>
-                    <li class="text-dark">ID: ${employees.id}</li>
+                    <li class="text-dark">ID: ${employee.id}</li>
                     <li class="text-dark">Email: <a
-                            href="mailto:${employees.email}">${employees.email}</a>
+                            href="mailto:${employee.email}">${employee.email}</a>
                     </li>
-                    <li class="text-dark">Github: ${employees.github}</li>
+                    <li class="text-dark">Github: ${employee.github}</li>
                 </ul>
             </div>
-            `
+            `);
         } else {
-            return `
+            cardData.push(`
             <div class="card float-start shadow col-lg-4 col-sm-12 mt-5 mx-auto">
                 <div class="card-header bg-dark text-light">
-                    ${employees.name}
+                    ${employee.name}
                     <br>
                     Intern
                 </div>
                 <ul>
-                    <li class="text-dark">ID: ${employees.id}</li>
+                    <li class="text-dark">ID: ${employee.id}</li>
                     <li class="text-dark">Email: <a
-                            href="mailto:${employees.email}">${employees.email}</a>
+                            href="mailto:${employee.email}">${employee.email}</a>
                     </li>
-                    <li class="text-dark">School: ${employees.school}</li>
+                    <li class="text-dark">School: ${employee.school}</li>
                 </ul>
             </div>
-            `
+            `);
         }
-    })
+    });
+    return cardData.join("");
 }
 
 module.exports = generateHTML
