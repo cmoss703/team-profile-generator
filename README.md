@@ -1,7 +1,5 @@
 # Team Profile Generator
 
-## Table of Contents
-
 ## TABLE OF CONTENTS
 
 * [Description](#description)
