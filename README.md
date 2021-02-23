@@ -24,6 +24,8 @@ You will then be given a series of prompts to enter in the information of your t
 
 [Here is a link to the video tutorial](https://drive.google.com/file/d/1h_n8mznACt1Jl67DJD9z5u21HUYXyrMf/view)
 
+[Here is a link to the sample file that was created in the video](https://cmoss703.github.io/team-profile-generator/)
+
 ![Prompts](/images/prompts.png)
 ![Deployed App](/images/team-profile.png)
 
