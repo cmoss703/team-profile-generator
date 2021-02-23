@@ -1,7 +1,7 @@
 const index = require("../index");
 
 function generateHTML(employees) {
-    console.log(employees);
+
     return `<!DOCTYPE html>
     <html lang="en">
     
@@ -40,7 +40,6 @@ function generateHTML(employees) {
 function generateTeam(employees) {
     let cardData = [];
     employees.forEach(employee => {
-        console.log(employee);
         if (employee.getRole() === "Manager") {
             cardData.push(`
             <div class="card float-start shadow col-lg-4 col-sm-12 mt-5 mx-auto">
